@@ -2,16 +2,23 @@
   background-color: var(--Grey-3);
   color: var(--Grey-0);
   width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 1.375rem;
   padding: 2.625rem 1.375rem;
   width: 23.063rem;
   border-radius: 0.125rem;
+  font-family: var(--font-primary);
 
   h2 {
+    color: var(--color-primary);
     text-align: center;
-    color: var(--Grey-0);
+  }
+
+  p {
+    text-align: center;
+    color: var(--Grey-1);
   }
 }
 
@@ -19,20 +26,4 @@
   display: flex;
   flex-direction: column;
   gap: 1.375rem;
-}
-
-.registerBtnContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.375rem;
-
-  button {
-    width: 100%;
-  }
-}
-
-.btnParagraph {
-  color: var(--Grey-1);
-  font-family: var(--font-primary);
-  text-align: center;
 }

@@ -1,7 +1,16 @@
+import { Form } from "../../components/Form";
+import styles from "./login.module.scss";
+
 export const Login = () => {
   return (
-    <>
-      <h1>Esse é minha página de login</h1>
-    </>
+    <div className={styles.loginPage}>
+      <h1 className={styles.titleLogin}>Kenzie Hub</h1>
+      <Form
+        titulo="Login"
+        btnEnter="Entrar"
+        btnRegister="Cadastre-se"
+        message="Ainda não possui conta?"
+      />
+    </div>
   );
 };

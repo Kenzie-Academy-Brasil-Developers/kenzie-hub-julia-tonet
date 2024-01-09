@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--color-main);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleHeader {
+  color: var(--color-primary);
+  padding: 1.25rem 0;
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: bold;
+}

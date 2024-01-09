@@ -1,0 +1,23 @@
+.registerPage {
+  background-color: var(--color-main);
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5.313rem 0;
+  gap: 2rem;
+}
+
+.headerContainer {
+  width: 23.125rem;
+}
+
+.header {
+  background-color: var(--color-main);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}

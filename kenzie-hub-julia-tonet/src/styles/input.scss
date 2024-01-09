@@ -1,0 +1,13 @@
+.input {
+  width: 20.621rem;
+  background-color: var(--Grey-2);
+  color: var(--Grey-50);
+  border: 0.078rem solid var(--Grey-2);
+  border-radius: 0.125rem;
+  height: 3rem;
+
+  &:hover {
+    color: var(--Grey-0);
+    border: 0.078rem solid var(--Grey-0);
+  }
+}

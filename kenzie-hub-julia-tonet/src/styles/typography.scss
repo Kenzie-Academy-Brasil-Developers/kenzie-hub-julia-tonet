@@ -1,0 +1,30 @@
+.title1 {
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: clamp(1rem, 0.949rem + 0.196vw, 1.125rem);
+}
+
+.title2 {
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: clamp(0.875rem, 0.824rem + 0.196vw, 1rem);
+}
+
+.headline {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: clamp(0.688rem, 0.662rem + 0.097vw, 0.75rem);
+  color: var(--grey-0);
+}
+
+.headlineBold {
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: clamp(0.688rem, 0.662rem + 0.097vw, 0.75rem);
+}
+
+.paragraph {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.824rem + 0.196vw, 1rem);
+}

@@ -1,0 +1,51 @@
+.btnMain {
+  background-color: var(--color-primary);
+  width: 20.25rem;
+  height: 3rem;
+  text-align: center;
+  color: var(--Gray-0);
+  border: 0.08rem solid var(--color-primary);
+  cursor: pointer;
+  border-radius: 0.25rem;
+
+  &:focus {
+    background-color: var(--color-primary-Focus);
+    border: 0.08rem solid var(--color-primary-Focus);
+  }
+
+  &:active {
+    background-color: var(--color-primary-Negative);
+    border: 0.08rem solid var(--color-primary-Negative);
+  }
+}
+
+.btnRegister {
+  background-color: var(--Grey-1);
+  width: 20.25rem;
+  height: 3rem;
+  text-align: center;
+  color: var(--Grey-0);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.824rem + 0.196vw, 1rem);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: 0.08rem solid var(--Grey-1);
+
+  &:hover {
+    background-color: var(--Grey-2);
+    border: 0.08rem solid var(--Grey-2);
+    color: var(--Grey-0);
+  }
+
+  &:active {
+    background-color: var(--color-primary-Negative);
+    border: 0.08rem solid var(--color-primary-Negative);
+  }
+
+  &.small {
+    width: 4.25rem;
+    height: 2.5rem;
+    font-size: 0.75rem;
+  }
+}

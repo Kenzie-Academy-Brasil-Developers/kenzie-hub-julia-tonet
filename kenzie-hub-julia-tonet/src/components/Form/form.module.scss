@@ -19,6 +19,10 @@
   display: flex;
   flex-direction: column;
   gap: 1.375rem;
+
+  p {
+    color: var(--Grey-1);
+  }
 }
 
 .registerBtnContainer {

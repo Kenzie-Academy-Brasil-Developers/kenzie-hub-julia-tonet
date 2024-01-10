@@ -19,3 +19,9 @@
   font-family: var(--font-primary);
   font-weight: bold;
 }
+
+@media (max-width: 420px) {
+  .loginPage {
+    padding: 2.5rem 0;
+  }
+}

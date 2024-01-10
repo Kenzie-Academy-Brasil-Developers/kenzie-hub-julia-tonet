@@ -8,7 +8,7 @@ export const InputForm = forwardRef(({ label, error, ...rest }, ref) => {
         <label className="headline">{label}</label>
       </div>
       <input ref={ref} {...rest} className="paragraph input"></input>
-      {error ? <p>{error.message}</p> : null}
+      {error ? <p className="headline">{error.message}</p> : null}
     </div>
   );
 });

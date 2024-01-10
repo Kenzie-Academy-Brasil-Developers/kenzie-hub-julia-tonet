@@ -3,10 +3,17 @@ import { InputForm } from "../Input";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 import styles from "./form.module.scss";
-import { z } from "zod";
+import { formSchema } from "./form.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const Form = ({ title, btnEnter, message, btnRegister }) => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+  });
 
   const submit = (formData) => {
     console.log(formData);
@@ -22,6 +29,7 @@ export const Form = ({ title, btnEnter, message, btnRegister }) => {
           id="email"
           type="email"
           {...register("email")}
+          error={errors.email}
         />
 
         <InputForm
@@ -29,6 +37,7 @@ export const Form = ({ title, btnEnter, message, btnRegister }) => {
           placeholder="Digite sua senha"
           id="password"
           type="password"
+          error={errors.password}
           {...register("password")}
         />
         <button type="submit" className="btnMain paragraph">

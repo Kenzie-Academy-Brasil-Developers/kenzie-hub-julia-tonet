@@ -17,12 +17,17 @@
   }
 
   p {
-    text-align: center;
     color: var(--Grey-1);
   }
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+.selectContainer {
   display: flex;
   flex-direction: column;
   gap: 1.375rem;

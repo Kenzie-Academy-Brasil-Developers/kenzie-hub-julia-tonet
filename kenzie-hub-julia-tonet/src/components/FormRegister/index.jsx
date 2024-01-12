@@ -26,7 +26,7 @@ export const FormRegister = () => {
       toast.success("Cadastro criado.");
       navigate("/");
     } catch (error) {
-      toast.error("Ocorreu um erro. Tente novamente.");
+      toast.error("Ocorreu um erro. Tente novamente, por favor.");
     }
   };
 

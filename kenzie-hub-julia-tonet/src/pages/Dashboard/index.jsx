@@ -4,7 +4,12 @@ import styles from "./dashboard.module.scss";
 export const Dashboard = ({ user, userLogout }) => {
   return (
     <div className={styles.dashboardContainer}>
-      <Header title="Kenzie Hub" label="Sair" className={styles.header} />
+      <Header
+        title="Kenzie Hub"
+        label="Sair"
+        className={styles.header}
+        userLogout={userLogout}
+      />
       <section className={styles.userInfo}>
         <h2 className="title1">Olá, {user?.name}</h2>
         <p className="headline">{user?.course_module}</p>

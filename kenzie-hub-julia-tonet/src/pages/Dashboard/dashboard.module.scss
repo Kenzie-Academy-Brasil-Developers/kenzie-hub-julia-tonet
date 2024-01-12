@@ -1,3 +1,8 @@
+body {
+  height: 100vh;
+  background-color: var(--color-main);
+}
+
 .dashboardContainer {
   height: 100vh;
   background-color: var(--Grey-4);
@@ -55,8 +60,8 @@
   .userInfo {
     display: flex;
     flex-direction: column;
-    width: 18.75rem;
-    margin: 1.5rem auto;
+    width: 90%;
+    margin: 1.5rem 1rem;
     align-items: flex-start;
     height: fit-content;
     gap: 2rem;
@@ -64,7 +69,7 @@
 
   .contentContainer {
     padding: 0 1rem;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     width: 100%;
   }
@@ -73,6 +78,7 @@
     margin-top: 1.5rem;
     gap: 2rem;
     width: 18.75rem;
+    width: 92%;
     text-align: left;
     line-height: 1.7rem;
   }

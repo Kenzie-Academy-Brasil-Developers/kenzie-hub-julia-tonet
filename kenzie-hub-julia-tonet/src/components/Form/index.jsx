@@ -27,7 +27,8 @@ export const Form = ({ title, btnEnter, message, btnRegister, setUser }) => {
       const { data } = await api.post("/sessions", formData);
       navigate("/dashboard");
       setUser(data.user);
-      console.log(data.user);
+      localStorage.setItem("@data", JSON.stringify(data.user));
+      localStorage.setItem("@token", JSON.stringify(data.token));
     } catch (error) {
       console.log(error);
       toast.error("Algo deu errado. Tente novamente");

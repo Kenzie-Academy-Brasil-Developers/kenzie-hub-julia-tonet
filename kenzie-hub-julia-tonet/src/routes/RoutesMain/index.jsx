@@ -9,6 +9,8 @@ export const RoutesMain = () => {
   const [user, setUser] = useState(null);
 
   const userLogout = () => {
+    localStorage.removeItem("@token");
+    localStorage.removeItem("@data");
     setUser(null);
     navigate("/");
   };

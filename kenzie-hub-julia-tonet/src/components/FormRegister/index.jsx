@@ -3,6 +3,10 @@ import { InputForm } from "../Input";
 import styles from "./formreg.module.scss";
 import { formRegSchema } from "./formreg.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { api } from "../../services/api";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const FormRegister = () => {
   const {
@@ -12,7 +16,18 @@ export const FormRegister = () => {
   } = useForm({ resolver: zodResolver(formRegSchema) });
 
   const submit = (formData) => {
-    console.log(formData);
+    userRegister(formData);
+  };
+
+  const navigate = useNavigate();
+  const userRegister = async (formData) => {
+    try {
+      const { data } = await api.post("/users", formData);
+      toast.success("Cadastro criado.");
+      navigate("/");
+    } catch (error) {
+      toast.error("Ocorreu um erro. Tente novamente.");
+    }
   };
 
   return (
@@ -77,16 +92,16 @@ export const FormRegister = () => {
             autoComplete="off"
           >
             <option value="">Selecione seu módulo</option>
-            <option value="Primeiro Módulo">
+            <option value="Primeiro Módulo (Introdução ao Frontend)">
               Primeiro módulo (Introdução ao Frontend)
             </option>
-            <option value="Segundo Módulo">
+            <option value="Segundo Módulo (Frontend Avançado)">
               Segundo módulo (Frontend Avançado)
             </option>
-            <option value="Terceiro Módulo">
+            <option value="Terceiro Módulo (Introdução ao Backend)">
               Terceiro módulo (Introdução ao Backend)
             </option>
-            <option value="Quarto Módulo">
+            <option value="Quarto Módulo (Backend Avançado)">
               Quarto módulo (Backend Avançado)
             </option>
           </select>

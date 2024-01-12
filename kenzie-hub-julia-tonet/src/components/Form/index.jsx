@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { InputForm } from "../Input";
 import { api } from "../../services/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./form.module.scss";
 import { formSchema } from "./form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
 
-export const Form = ({ title, btnEnter, message, btnRegister }) => {
+export const Form = ({ title, btnEnter, message, btnRegister, setUser }) => {
   const {
     register,
     handleSubmit,
@@ -15,8 +16,22 @@ export const Form = ({ title, btnEnter, message, btnRegister }) => {
     resolver: zodResolver(formSchema),
   });
 
+  const navigate = useNavigate();
+
   const submit = (formData) => {
-    console.log(formData);
+    userLogin(formData);
+  };
+
+  const userLogin = async (formData) => {
+    try {
+      const { data } = await api.post("/sessions", formData);
+      navigate("/dashboard");
+      setUser(data.user);
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+      toast.error("Algo deu errado. Tente novamente");
+    }
   };
 
   return (

@@ -1,7 +1,79 @@
+.dashboardContainer {
+  height: 100vh;
+  background-color: var(--Grey-4);
+}
+
 .header {
-  background-color: var(--color-main);
+  background-color: var(--Grey-4);
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-around;
+}
+
+.userInfo {
+  background-color: var(--Grey-4);
+  height: 7.375rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  h2 {
+    color: var(--Grey-0);
+  }
+
+  p {
+    color: var(--Grey-1);
+  }
+}
+
+.contentContainer {
+  background-color: var(--Grey-4);
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 31.875rem;
+  color: var(--Grey-0);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 62.5rem;
+  gap: 1.438rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 800px) {
+  .header {
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    width: 18.75rem;
+    margin: 1.5rem auto;
+    align-items: flex-start;
+    height: fit-content;
+    gap: 2rem;
+  }
+
+  .contentContainer {
+    padding: 0 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content {
+    margin-top: 1.5rem;
+    gap: 2rem;
+    width: 18.75rem;
+    text-align: left;
+    line-height: 1.7rem;
+  }
 }

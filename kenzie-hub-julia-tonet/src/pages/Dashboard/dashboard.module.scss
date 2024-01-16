@@ -21,7 +21,7 @@ body {
   height: 7.375rem;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   h2 {
@@ -38,8 +38,7 @@ body {
   height: fit-content;
   display: flex;
   align-items: center;
-  justify-content: left;
-  padding-left: 31.875rem;
+  justify-content: center;
   color: var(--Grey-0);
 }
 
@@ -51,6 +50,16 @@ body {
   margin-top: 2.5rem;
 }
 
+.info {
+  width: 62.5rem;
+  text-align: left;
+  line-height: 1.7rem;
+  margin: 1.5rem 1rem;
+  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 800px) {
   .header {
     justify-content: space-between;
@@ -60,26 +69,32 @@ body {
   .userInfo {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    padding: 0 1rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .info {
+    gap: 1rem;
+    width: 92%;
+    text-align: left;
+    line-height: 1.7rem;
     margin: 1.5rem 1rem;
-    align-items: flex-start;
-    height: fit-content;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .contentContainer {
     padding: 0 1rem;
-    /*justify-content: center;*/
     align-items: center;
     width: 100%;
   }
 
   .content {
-    margin-top: 1.5rem;
-    gap: 2rem;
-    width: 18.75rem;
+    gap: 1.5rem;
     width: 92%;
     text-align: left;
     line-height: 1.7rem;
+    margin: 1.5rem 1rem;
   }
 }

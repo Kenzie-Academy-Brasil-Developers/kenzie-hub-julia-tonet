@@ -62,8 +62,8 @@ export const Form = ({ title, btnEnter, message, btnRegister, setUser }) => {
       </form>
       <div className={styles.registerBtnContainer}>
         <p className={`${styles.btnParagraph} headlineBold`}>{message}</p>
-        <Link to={"/register"}>
-          <button className="btnRegister">{btnRegister}</button>
+        <Link to={"/register"} className="btnRegister">
+          {btnRegister}
         </Link>
       </div>
     </div>

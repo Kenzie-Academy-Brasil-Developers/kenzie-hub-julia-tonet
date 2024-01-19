@@ -1,7 +1,12 @@
 import { Header } from "../../components/Header";
+import { TechList } from "../../components/TechList";
 import styles from "./dashboard.module.scss";
+import { useContext } from "react";
+import { TechContext } from "../../providers/TechContext";
 
-export const Dashboard = ({ user, userLogout }) => {
+export const Dashboard = () => {
+  const { user, userLogout } = useContext(TechContext);
+
   return (
     <div className={styles.dashboardContainer}>
       <Header title="Kenzie Hub" className={styles.header}>

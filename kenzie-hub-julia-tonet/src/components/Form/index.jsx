@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { InputForm } from "../Input";
-import { api } from "../../services/api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./form.module.scss";
 import { formSchema } from "./form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "react-toastify";
+import { useContext } from "react";
+import { TechContext } from "../../providers/TechContext";
 
-export const Form = ({ title, btnEnter, message, btnRegister, setUser }) => {
+export const Form = ({ title, btnEnter, message, btnRegister }) => {
   const {
     register,
     handleSubmit,
@@ -16,24 +16,7 @@ export const Form = ({ title, btnEnter, message, btnRegister, setUser }) => {
     resolver: zodResolver(formSchema),
   });
 
-  const navigate = useNavigate();
-
-  const submit = (formData) => {
-    userLogin(formData);
-  };
-
-  const userLogin = async (formData) => {
-    try {
-      const { data } = await api.post("/sessions", formData);
-      navigate("/dashboard");
-      setUser(data.user);
-      localStorage.setItem("@data", JSON.stringify(data.user));
-      localStorage.setItem("@token", JSON.stringify(data.token));
-    } catch (error) {
-      console.log(error);
-      toast.error("Algo deu errado. Tente novamente");
-    }
-  };
+  const { submit } = useContext(TechContext);
 
   return (
     <div className={styles.formContainer}>

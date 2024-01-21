@@ -4,11 +4,11 @@ import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const TechContext = createContext({});
-export const useTechContext = createContext(TechContext);
 
 export const TechProvider = ({ children }) => {
-  const [techList, setTechList] = useState(null);
+  const [techList, setTechList] = useState([]);
   const [user, setUser] = useState(null);
+  const [createTech, setCreateTech] = useState(false);
   const navigate = useNavigate();
 
   const submit = (formData) => {
@@ -16,25 +16,24 @@ export const TechProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const loadUser = async () => {
-      const token = localStorage.getItem("@token");
-      if (token) {
-        try {
-          const { data } = await api.get("/profile", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setUser(data);
-          setTechList(data.techs);
-          navigate("/dashboard");
-        } catch (error) {
-          console.log(error);
-          localStorage.removeItem("@token");
-        }
+    const token = localStorage.getItem("@token");
+    const getUser = async () => {
+      try {
+        const { data } = await api.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(data);
+        setTechList(data.techs);
+        navigate("/dashboard");
+      } catch (error) {
+        console.log(error);
       }
     };
-    loadUser();
+    if (token) {
+      getUser();
+    }
   }, []);
 
   const userLogin = async (formData) => {
@@ -42,6 +41,7 @@ export const TechProvider = ({ children }) => {
       const { data } = await api.post("/sessions", formData);
       navigate("/dashboard");
       setUser(data.user);
+      setTechList(data.user.techs);
       localStorage.setItem("@token", data.token);
       localStorage.setItem("@data", JSON.stringify(data.user));
     } catch (error) {
@@ -53,7 +53,24 @@ export const TechProvider = ({ children }) => {
     localStorage.removeItem("@token");
     localStorage.removeItem("@data");
     setUser(null);
+    setTechList([]);
     navigate("/");
+  };
+
+  const createTechs = async (formData) => {
+    const token = localStorage.getItem("@token");
+    try {
+      const { data } = await api.post("/users/techs", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setTechList([...techList, data]);
+      setCreateTech(false);
+      toast.success("Tecnologia adicionada com sucesso");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -67,6 +84,9 @@ export const TechProvider = ({ children }) => {
         submit,
         userLogin,
         userLogout,
+        createTech,
+        setCreateTech,
+        createTechs,
       }}
     >
       {children}

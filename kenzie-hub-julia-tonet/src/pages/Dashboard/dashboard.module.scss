@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-color: var(--color-main);
+  background-color: var(--Grey-4);
 }
 
 .dashboardContainer {
@@ -19,6 +19,12 @@ body {
   justify-content: space-between;
 }
 
+.techContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.313rem;
+}
+
 .userInfo {
   background-color: var(--Grey-4);
   height: 7.375rem;
@@ -26,6 +32,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1.5rem 0;
 
   h2 {
     color: var(--Grey-0);
@@ -63,9 +70,30 @@ body {
   justify-content: space-between;
 }
 
+.techs {
+  display: flex;
+  justify-content: space-between;
+  width: 62.5rem;
+  color: var(--Grey-0);
+}
+
+.btnAddTechs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--Grey-3);
+  color: var(--Grey-0);
+  border: 0.063rem solid var(--Grey-3);
+  border-radius: 0.125rem;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 800px) {
   .header {
-    padding: 1.5rem;
+    justify-content: space-between;
+    padding: 1rem;
     width: 100%;
   }
 
@@ -79,10 +107,9 @@ body {
 
   .info {
     gap: 1rem;
-    width: 92%;
+    width: 100%;
     text-align: left;
     line-height: 1.7rem;
-    margin: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -100,8 +127,13 @@ body {
     line-height: 1.7rem;
     margin: 1.5rem 1rem;
   }
-}
 
-.teste {
-  background-color: aliceblue;
+  .techContainer {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .techs {
+    width: 100%;
+  }
 }

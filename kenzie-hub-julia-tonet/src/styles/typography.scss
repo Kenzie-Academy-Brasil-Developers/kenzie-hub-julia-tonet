@@ -10,6 +10,13 @@
   font-size: clamp(0.875rem, 0.824rem + 0.196vw, 1rem);
 }
 
+.title3 {
+  color: var(--Grey-0);
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
+}
+
 .headline {
   font-family: var(--font-primary);
   font-weight: 400;

@@ -1,0 +1,53 @@
+.techItem {
+  background-color: var(--color-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--Grey-0);
+  font-family: var(--font-primary);
+  width: 60rem;
+  height: 3.063rem;
+  padding: 0.8125rem 1.375rem;
+}
+
+.techTitle {
+  color: var(--Grey-0);
+  font-size: 0.938rem;
+  font-weight: 700;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+.statusDescription {
+  color: #868e96;
+  font-size: 0.781rem;
+  font-weight: 400;
+  font-family: var(--font-primary);
+  width: 50%;
+}
+
+.icons {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .techItem {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .statusDescription {
+    width: 50%;
+  }
+
+  .icons {
+    width: 40%;
+  }
+}

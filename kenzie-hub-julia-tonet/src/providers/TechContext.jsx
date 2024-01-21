@@ -42,6 +42,7 @@ export const TechProvider = ({ children }) => {
       navigate("/dashboard");
       setUser(data.user);
       setTechList(data.user.techs);
+      console.log(techList);
       localStorage.setItem("@token", data.token);
       localStorage.setItem("@data", JSON.stringify(data.user));
     } catch (error) {
@@ -73,6 +74,19 @@ export const TechProvider = ({ children }) => {
     }
   };
 
+  const deleteTechs = async (techToDelete) => {
+    const token = localStorage.getItem("@token");
+    const authHeader = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      await api.delete(`/users/techs/${techToDelete}`, authHeader);
+      const filteredTechs = techList.filter(({ id }) => id !== techToDelete);
+      console.log(filteredTechs);
+      setTechList(filteredTechs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <TechContext.Provider
       value={{
@@ -87,6 +101,7 @@ export const TechProvider = ({ children }) => {
         createTech,
         setCreateTech,
         createTechs,
+        deleteTechs,
       }}
     >
       {children}

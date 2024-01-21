@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { TechContext } from "../../providers/TechContext";
 
 export const TechCard = ({ tech }) => {
+  const { deleteTechs } = useContext(TechContext);
   return (
     <li className={style.techItem}>
       <h3 className={style.techTitle}>{tech.title}</h3>
@@ -12,7 +13,11 @@ export const TechCard = ({ tech }) => {
         <p className={style.statusDescription}>{tech.status}</p>
         <div className={style.icons}>
           <img src={lapis} alt="Editar" />
-          <img src={lixeira} alt="Excluir" />
+          <img
+            src={lixeira}
+            alt="Excluir"
+            onClick={() => deleteTechs(tech.id)}
+          />
         </div>
       </div>
     </li>

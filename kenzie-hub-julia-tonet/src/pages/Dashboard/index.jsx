@@ -4,9 +4,10 @@ import styles from "./dashboard.module.scss";
 import { useContext } from "react";
 import { TechContext } from "../../providers/TechContext";
 import { CreateTechModal } from "../../components/CreateTechModal";
+import { EditTechModal } from "../../components/EditTechModal";
 
 export const Dashboard = () => {
-  const { user, userLogout, createTech, setCreateTech } =
+  const { user, userLogout, createTech, setCreateTech, editTech } =
     useContext(TechContext);
 
   return (
@@ -38,6 +39,7 @@ export const Dashboard = () => {
           <TechList />
         </div>
         {createTech ? <CreateTechModal /> : null}
+        {editTech ? <EditTechModal /> : null}
       </section>
     </div>
   );

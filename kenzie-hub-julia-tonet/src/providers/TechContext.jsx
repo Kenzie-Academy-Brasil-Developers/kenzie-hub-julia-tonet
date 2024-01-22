@@ -9,6 +9,8 @@ export const TechProvider = ({ children }) => {
   const [techList, setTechList] = useState([]);
   const [user, setUser] = useState(null);
   const [createTech, setCreateTech] = useState(false);
+  const [editTech, setEditTech] = useState(false);
+  const [editingTech, setEditingTech] = useState([]);
   const navigate = useNavigate();
 
   const submit = (formData) => {
@@ -87,6 +89,30 @@ export const TechProvider = ({ children }) => {
     }
   };
 
+  const updateTechs = async ({ id, status, title }) => {
+    const token = localStorage.getItem("@token");
+    const authHeader = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      const { data } = await api.put(
+        `/users/techs/${id}`,
+        { id, status, title },
+        authHeader
+      );
+      const newTechList = techList.map((tech) => {
+        if (tech.id === id) {
+          return data;
+        } else {
+          return tech;
+        }
+      });
+      setTechList(newTechList);
+      setEditingTech([]);
+      setEditTech(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <TechContext.Provider
       value={{
@@ -102,6 +128,11 @@ export const TechProvider = ({ children }) => {
         setCreateTech,
         createTechs,
         deleteTechs,
+        editTech,
+        setEditTech,
+        editingTech,
+        setEditingTech,
+        updateTechs,
       }}
     >
       {children}
